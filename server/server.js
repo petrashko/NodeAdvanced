@@ -20,6 +20,18 @@ app.use(bodyParser.json());
 
 //*******************************************************************
 
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        let resTodos = {'todos': todos};
+        res.send(resTodos);
+    })
+    .catch((err) => {
+        res.status(400).send(err);
+    });
+});
+
+//*******************************************************************
+
 app.post('/todos', (req, res) => {
     let todo = new Todo({
         text: req.body.text
