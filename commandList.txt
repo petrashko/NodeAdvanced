@@ -1,0 +1,45 @@
+***************************************
+Initial Git:
+
+git init
+git add .
+git commit –m "Initial commit"
+
+***************************************
+Create Heroku Application:
+
+heroku login
+-- Email: petrashko@mail.ru --
+-- Passwd: Kevelam7 --
+heroku create
+
+heroku config:set NODE_ENV=production
+
+git push heroku master
+
+***************************************
+Setting MongoDB:
+heroku addons:create mongolab:sandbox
+
+***************************************
+Start server:
+heroku ps:scale web=1
+
+heroku open
+
+***************************************
+After only:
+
+git add .
+git commit –m "My commit"
+git push heroku master
+
+***************************************
+Stop server:
+
+heroku ps:scale web=0
+
+***************************************
+Start local server:
+
+heroku local web
